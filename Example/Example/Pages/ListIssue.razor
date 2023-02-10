@@ -1,0 +1,23 @@
+﻿@using TinyMCE.Blazor
+
+<Editor @bind-Value="@Model.Value"
+        Field="() => Model.Value"
+        JsConfSrc="exampleConfiguration"
+        ScriptSrc="/js/tinymce/tinymce.min.js" />
+
+<div>
+    Current value: @Model.Value
+</div>
+
+
+@code {
+    private class ExampleClass
+    {
+        public string Value { get; set; } = string.Empty;
+    }
+
+    private ExampleClass Model = new ExampleClass
+        {
+            Value = "<ul> <li>1234</li> </ul>"
+        };
+}
